@@ -1,23 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
+import BookTable from './components/BookTable/bookTable'
+import Header from './components/Header/header'
+import { Container, Row, Col,Table } from 'reactstrap';
+import React, { useState } from 'react';
+
 
 function App() {
+  const [books, setBooks] = useState([{name : "sdf", price : 12 , category: "sdf", description: "sdfdsf"},
+                                      {name : "sdf", price : 12 , category: "sdf", description: "sdfdsf"},
+                                      {name : "sdf", price : 12 , category: "sdf", description: "sdfdsf"}]);
+
+  const [random] =  useState("HEYYY")
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header/>
+
+      <Container>
+        { books ? <BookTable books = {books} random = {random}/> : null}
+      </Container>
+      
+      
+      
     </div>
   );
 }
