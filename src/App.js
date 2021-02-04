@@ -2,22 +2,33 @@ import logo from './logo.svg';
 import './App.css';
 import BookTable from './components/BookTable/bookTable'
 import Header from './components/Header/header'
-import { Container, Row, Col,Table } from 'reactstrap';
-import React, { useState } from 'react';
+import { Container, Row, Col,Table, Button, Modal,ModalFooter,ModalHeader,ModalBody} from 'reactstrap';
 
+import {useSelector,useDispatch} from 'react-redux';
+import BookPopUp from './components/BookPopUp/BookPopUp'
+import {togglePopup} from './redux/actions/popUpActions'
 
 function App() {
-  const [books, setBooks] = useState([{name : "sdf", price : 12 , category: "sdf", description: "sdfdsf"},
-                                      {name : "sdf", price : 12 , category: "sdf", description: "sdfdsf"},
-                                      {name : "sdf", price : 12 , category: "sdf", description: "sdfdsf"}]);
 
-  const [random] =  useState("HEYYY")
+
+  const dispatch = useDispatch()
+
+  const toggle = () => {
+    dispatch(togglePopup())
+  }
+
   return (
     <div>
       <Header/>
-
       <Container>
-        { books ? <BookTable books = {books} random = {random}/> : null}
+        <Row>
+          <Col xs="9">  </Col>
+          <Col  xs="3"> <Button onClick = {toggle} > Add Book</Button> </Col>
+        </Row>
+        <Row className='mt-5'>
+        <BookTable/>
+        </Row>
+        <BookPopUp/>
       </Container>
       
       
