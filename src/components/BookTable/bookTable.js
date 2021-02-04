@@ -18,10 +18,10 @@ function BookTable() {
         <thead>
         <tr>
             <th>#</th>
-            <th>name</th>
-            <th>price</th>
-            <th>category</th>
-            <th>description</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Description</th>
             <th></th>
         </tr>
         </thead>
